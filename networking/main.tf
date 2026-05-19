@@ -53,7 +53,6 @@ resource "aws_nat_gateway" "main" {
 
   # To ensure proper ordering, it is recommended to add an explicit dependency
   # on the Internet Gateway for the VPC.
-  depends_on = [aws_internet_gateway.gw]
 }
 
 resource "aws_route_table" "main_nat" {
@@ -61,7 +60,7 @@ resource "aws_route_table" "main_nat" {
 
         route {
             cidr_block = "0.0.0.0/0"
-            gateway_id = aws_nat_gateway.main.id
+            gateway_id = data.aws_internet_gateway.default.id
         }
 
         tags = {
