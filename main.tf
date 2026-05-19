@@ -21,6 +21,7 @@ module "dns"{
 
 
 resource "null_resource" "name" {
+  depends_on = [ module.ec2, module.dns ]
   for_each = var.component
   connection {
     type = "ssh"
