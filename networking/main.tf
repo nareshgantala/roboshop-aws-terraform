@@ -16,20 +16,20 @@ resource "aws_subnet" "Private_subnet" {
   }
 }
 
-resource "aws_internet_gateway" "gw" {
-  vpc_id = var.vpc_id
+# resource "aws_internet_gateway" "gw" {
+#   vpc_id = var.vpc_id
 
-  tags = {
-    Name = "roboshop-gw"
-  }
-}
+#   tags = {
+#     Name = "roboshop-gw"
+#   }
+# }
 
 resource "aws_route_table" "main_gw" {
   vpc_id = var.vpc_id
 
   route {
     cidr_block = "0.0.0.0/0"
-    gateway_id = aws_internet_gateway.gw.id
+    gateway_id = data.aws_internet_gateway.default.id
   }
 
   tags = {

@@ -18,3 +18,18 @@ module "dns"{
     component = each.key
     record = module.ec2[each.key].private_ip
 }
+
+
+resource "null_resource" "name" {
+  for_each = var.component
+  connection {
+    type = "ssh"
+    user = "ec2-user"
+    private_key = "C:\\Users\\DELL\\Downloads\\roboshop_pem.pem"
+    host = module.ec2[each.key].private_ip
+  }
+  provisioner "file" {
+    source = "C:\\Users\\DELL\\Downloads\\roboshop_pem.pem"
+    destination = "/home/ec2-user/roboshop_pem.pem"
+  }
+}
