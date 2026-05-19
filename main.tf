@@ -9,7 +9,7 @@ module "ec2" {
   source = "./ec2"
   component = each.key
   size = each.value
-  instance_subnet_id = module.network.instance_subnet.id
+  instance_subnet_id = module.network.instance_subnet_id
 }
 
 module "dns"{
