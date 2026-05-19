@@ -3,4 +3,4 @@ variable "ami_id" {
 }
 variable "component" {}
 variable "size" {}
-variable "instance_subnet.id" {}
+variable "instance_subnet_id" {}

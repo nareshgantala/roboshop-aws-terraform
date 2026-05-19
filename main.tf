@@ -9,5 +9,12 @@ module "ec2" {
   source = "./ec2"
   component = each.key
   size = each.value
-  instance_subnet.id = module.network.instance_subnet.id
+  instance_subnet_id = module.network.instance_subnet.id
+}
+
+module "dns"{
+    for_each = var.component
+    source = "./dns"
+    component = each.key
+    record = module.ec2[each.key].private_ip
 }
