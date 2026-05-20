@@ -42,9 +42,16 @@ resource "aws_route_table_association" "main" {
   route_table_id = aws_route_table.main_gw.id
 }
 
+resource "aws_eip" "nat" {
+  domain = "vpc"
+
+  tags = {
+    Name = "roboshop-nat-eip"
+  }
+}
 
 resource "aws_nat_gateway" "main" {
-
+  allocation_id = aws_eip.nat.id
   subnet_id     = aws_subnet.Public_subnet.id
 
   tags = {
