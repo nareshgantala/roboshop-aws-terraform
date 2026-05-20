@@ -4,3 +4,5 @@ data "aws_internet_gateway" "default" {
     values = [var.vpc_id]
   }
 }
+
+
