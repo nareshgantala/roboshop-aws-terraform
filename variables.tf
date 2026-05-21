@@ -5,7 +5,7 @@ variable "vpc_id" {
 variable "component" {
     default = {
         frontend = "t2.micro"
-        mysql = "t2.micro"
+        mysql = "t3.micro"
         catalogue = "t2.micro"
         mongodb = "t2.micro"
         user = "t2.micro"
@@ -15,6 +15,6 @@ variable "component" {
         rabbitmq = "t2.micro"
         payment = "t2.micro"
         orders = "t2.micro"
-        rating = "t2.micro"
+        ratings = "t2.micro"
     }
 }
