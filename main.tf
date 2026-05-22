@@ -34,7 +34,7 @@ resource "null_resource" "name" {
   }
   provisioner "remote-exec" {
     inline = [ 
-      "sudo dnf install ansible-core",
+      "sudo dnf install ansible-core -y",
       "ansible-pull -i localhost, -U https://github.com/nareshgantala/roboshop-aws-ansible.git ${each.key}.yml "
      ]
 
