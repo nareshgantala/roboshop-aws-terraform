@@ -18,3 +18,12 @@ variable "component" {
         # ratings = "t2.micro"
     }
 }
+
+variable "db" {
+    default = {
+        # mysql = "t3.micro"
+        # mongodb = "t2.micro"
+        # valkey = "t2.micro"
+        # rabbitmq = "t2.micro"
+    }
+}
