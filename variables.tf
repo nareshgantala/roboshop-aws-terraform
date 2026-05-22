@@ -4,7 +4,7 @@ variable "vpc_id" {
 
 variable "component" {
     default = {
-        frontend = "t3.micro"
+        frontend = "t2.micro"
         # mysql = "t3.micro"
         # catalogue = "t2.micro"
         # mongodb = "t2.micro"
