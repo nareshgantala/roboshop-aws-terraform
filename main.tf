@@ -107,7 +107,7 @@ resource "null_resource" "ui_ansible" {
     type = "ssh"
     user = "ec2-user"
     private_key = file("/home/ec2-user/roboshop_pem.pem")
-    host = module.ec2_app[each.key].private_ip
+    host = module.ec2_ui[each.key].private_ip
   }
   provisioner "remote-exec" {
     inline = [ 
