@@ -36,7 +36,7 @@ module "dns_app"{
 }
 
 module "ec2_db" {
-  for_each = var.app
+  for_each = var.db
   source = "./ec2"
   component = each.key
   size = each.value
@@ -44,7 +44,7 @@ module "ec2_db" {
 }
 
 module "dns_db"{
-    for_each = var.app
+    for_each = var.db
     source = "./dns"
     component = each.key
     record = module.ec2_db[each.key].private_ip
