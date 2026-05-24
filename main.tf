@@ -99,7 +99,7 @@ resource "null_resource" "app_ansible" {
 
 resource "null_resource" "ui_ansible" {
   depends_on = [ module.ec2_ui, module.dns_ui, null_resource.app_ansible, null_resource.db_ansible  ]
-  for_each = var.app
+  for_each = var.ui
   triggers = {
     always_run = timestamp()
   }
