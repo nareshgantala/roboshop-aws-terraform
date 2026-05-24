@@ -11,7 +11,7 @@ variable "ui" {
 
 variable "db" {
     default = {
-        mysql = "t3.micro"
+        mysql = "t3.medium"
         mongodb = "t2.micro"
         valkey = "t2.micro"
         rabbitmq = "t2.micro"
